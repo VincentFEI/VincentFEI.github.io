@@ -1,0 +1,51 @@
+# Permalinks
+permalink:        /post/:title.html
+
+# Setup
+url:              https://myanbin.github.io
+img_url:          https://infp.github.io/images
+
+# Set to '' in case of hosting on `https://<your-github-name>.github.io`
+baseurl:          ''
+
+title:            '西涯先生'
+
+# Markdown enabled, however don't use more than one paragraph (enforced by `>`)
+description:      |
+  [科研](/academic/)、[技术](/technology/)、[生活](/life/)、[文化](/culture/)~~~
+  这是有关于我的简单生活。
+
+
+# Google Analytics tracking ID
+# TODO: 如果使用本主题，请务必替换此处的 Google 统计代码，否则你的站点将无法获得统计数据
+analytics:        'UA-156114688-1'
+
+# Fallback image and color if not overwritten for tag or post
+image:            /public/images/hedin.jpg
+color:            '#dc322f'
+
+author:
+  name:           '西涯先生'
+  email:          zhangpengfei2017@ia.ac.cn
+  github:         VincentFEI
+  csdn:           handsome_for_kill
+  #linkedin:       myanbin
+  #facebook:       myanbin
+  photo:          /public/images/cat.jpg
+
+
+  # Markdown enabled, can use multiple paragraphs (enabled by `|`)
+  about:          |
+    我是西涯先生，一个。
+
+
+compress_html:
+  clippings:      all
+  comments:       ["<!--", "-->"]
+  endings:        all
+  startings:      [html, head, body]
+
+sass:
+  sass_dir:       /public/css
+  style:          compressed
+

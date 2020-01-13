@@ -1,0 +1,35 @@
+# Add an entry, where the key represents a slug.
+# Provide at least a `name` value and optionally `image`, `color` and `description`.
+# Markdown is enabled for `description`, however don't use more than one paragraph (enforced by `>`)
+#
+# Example:
+#
+# ~~~
+# mytag:
+#   name: My Tag
+#   description: >
+#     *My Tag* is an example of how to define a custom tag.
+# ~~~
+
+academic:
+  name: 科研
+  color: '#f44336'
+  description: |
+    在成为机器人工程师的道路上步履不停。
+
+technology:
+  name: 技术
+  description: |
+    我手里拥有的是足以改造世界的武器。
+
+life:
+  name: 生活
+  description: |
+    简单生活，高贵思考（Simple living, noble thinking）——这是上学时我从西方哲学家斯宾诺莎那里得到的名言，并成了我追求简朴而具有理性思想的生活方式的座右铭。
+
+culture:
+  name: 文化
+  description: |
+    读万卷书，行万里路。
+
+
