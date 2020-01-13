@@ -1,5 +1,5 @@
 # Permalinks
-permalink:        /post/:title.html
+permalink:        index.html
 
 # Setup
 url:              https://VincentFEI.github.io
