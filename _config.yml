@@ -31,12 +31,12 @@ author:
   csdn:           handsome_for_kill
   #linkedin:       myanbin
   #facebook:       myanbin
-  photo:          /public/images/cat.jpg
+  photo:          /public/images/me.jpg
 
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:          |
-    我是西涯先生，一个。
+    我是西涯先生，一个普通人。我希望能成为一个有趣且专业的机器人工程师。
 
 
 compress_html:
