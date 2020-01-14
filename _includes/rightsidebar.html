@@ -1,0 +1,32 @@
+{% assign image = page.image %}
+<!-- 
+  这些是liquid模板引擎的语法，
+  jekyll支持用liquid语法插入到html文件中，
+  最终还是可以编译出html文件
+  说明：
+  site.var_name：代表的是_config.yml和_tag目录下的yml文件中定义好的变量
+  page.var_name：代表的是当前渲染的页面下定义的变量
+-->
+
+{% unless image %}
+  {% if page.tag %}
+    {% assign tag = site.data.tags[page.tag] %}
+    {% assign image = tag.image %}
+  {% else %}
+    {% if page.tags.size > 0 %}
+      {% assign tag_name = page.tags[0] %}
+      {% assign tag = site.data.tags[tag_name] %}
+      {% assign image = tag.image %}
+    {% endif %}
+  {% endif %}
+{% endunless %}
+
+{% unless image %}
+  {% assign image = site.image %}
+{% endunless %}
+
+<aside id="_rightsidebar" class="rightsidebar" {% if image %}style="background-image:url('{{image}}')"{% endif %}>
+    <div class="container rightsidebar-sticky">
+
+    </div>
+</aside>
