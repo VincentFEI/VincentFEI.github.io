@@ -55,6 +55,7 @@
   background: rgba(32, 32, 32, .33);
 }
 
+// 这个好像是js定义的.drawer
 /* Use larg desktop styles for mobile as well when the JS "drawer" is active */
 .drawer > .sidebar {
   position: fixed;
@@ -214,7 +215,9 @@
 .container {
   position: relative;
 }
-
+.content.container{
+  margin: 0 auto;
+}
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the

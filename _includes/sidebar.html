@@ -35,7 +35,8 @@
       {{site.description | markdownify}}
       <!-- 上面这一行是要把site.description里面的markdown语句改成html语句，这是liquid过滤器的用法-->
     </div>
-
+    
+    <!-- 侧边栏的中间导航链接部分 -->
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item {% if page.url == '/' %}active{% endif %}" href="{{site.baseurl}}/">主页</a>
       {% comment %}<!-- 这是liquid的注释语法 -->
@@ -60,6 +61,7 @@
       <a class="sidebar-nav-item" href="https://github.com/{{site.author.github}}/talk/issues/new">留言</a>
     </nav>
 
+    <!-- 侧边栏的最下方社交媒体链接部分 -->
     <div class="sidebar-social">
       <!-- 
       {% if site.author.csdn %}
