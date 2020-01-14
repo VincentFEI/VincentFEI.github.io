@@ -2,6 +2,7 @@
 layout: page
 title: "友链"
 permalink: link.html
+image: /public/images/road.jpg
 sequence: 5
 ---
 
@@ -21,3 +22,5 @@ sequence: 5
 * [嗨森の猫窝](http://hexenq.com/blog/)
 
 * [Li RUONAN](http://liruonan.tech/)
+
+* [饮冰先生的博客](https://myanbin.github.io/)
