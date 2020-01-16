@@ -13,7 +13,7 @@ title:            '西涯先生'
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:      |
   [科研](/academic/)、[技术](/technology/)、[生活](/life/)、[文化](/culture/)~~~
-  这是有关于我的简单生活。
+  这里是有关于我的简单生活。
 
 
 # Google Analytics tracking ID
@@ -36,7 +36,7 @@ author:
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:          |
-    我是西涯先生，一个普通人。我希望能成为一个有趣且专业的机器人工程师。
+    我是西涯先生，一个还能更有趣且专业的机器人工程师。有问题欢迎联系：zhangpengfei2017@ia.ac.cn~~~
 
 
 compress_html:
