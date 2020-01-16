@@ -60,7 +60,11 @@ bundle exec jekyll serve # 打开了本地的站点
 ~~~
 > 如果出现有的模板下载下来，不想bundle install的，可以新建一个网站，然后把所有的文件拷贝过去
 
-> 如果出现` Permission denied - bind(2) for 127.0.0.1:4000 (Errno::EACCES)`错误的话，说明是4000端口被占用了，可以用如下命令打开：`bundle exec jekyll serve --port 4002`
+> 如果出现` Permission denied - bind(2) for 127.0.0.1:4000 (Errno::EACCES)`错误的话，说明是4000端口被占用了，可以用如下命令打开：
+```
+bundle exec jekyll serve --port 4002
+```
+
 #### 2.1.4 使用插件
 - 使用Jekyll-admin插件
     - 在gemfile文件里面增加一句`gem "jekyll-admin"`
