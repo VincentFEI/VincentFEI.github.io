@@ -271,7 +271,7 @@ C、Dm、Em、F、G、Am、B
 | 5弦空弦 | A    | 挨   |
 | 6弦空弦 | E    | 饿   |
 
-![guitar-finger-board](..\public\images\guitar-finger-board.jpg)
+![guitar-finger-board](/public/images/guitar-finger-board.jpg)
 
 ## 和弦推算
 [和弦推算]: https://www.bilibili.com/video/av38124366
@@ -286,7 +286,7 @@ C、Dm、Em、F、G、Am、B
 - 以六弦为根音，用F和弦的手型，但是3弦按1品即可，在指板上滑动，就可以弹出各种小三和弦了。
 - 以五弦为根音，保持Am和弦或者Bm和弦的手型，在指板上滑动，就可以弹出各种小三和弦了。
 
-![guitar-chord](..\public\images\guitar-chord.jpg)
+![guitar-chord](/public/images/guitar-chord.jpg)
 
 ## 音阶型
 
@@ -302,4 +302,4 @@ X型音阶：以吉他6弦上X音为最低音的音阶
 - Si型音阶
 - Re型音阶
 
-![guitar-yinjie](..\public\images\guitar-yinjie.jpg)
+![guitar-yinjie](/public/images/guitar-yinjie.jpg)
