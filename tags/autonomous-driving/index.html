@@ -1,0 +1,982 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: December 7, 2024 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Pengfei Zhang" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://zhangpengfei.com/tags/autonomous-driving/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="alternate" href="/tags/autonomous-driving/index.xml" type="application/rss+xml" title="ZhangPengfei CV Site" />
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu3247630877640252165.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu4166356570829923896.png" />
+
+  <link rel="canonical" href="https://zhangpengfei.com/tags/autonomous-driving/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@GetResearchDev" />
+    <meta property="twitter:creator" content="@GetResearchDev" />
+  
+  <meta property="og:site_name" content="ZhangPengfei CV Site" />
+  <meta property="og:url" content="https://zhangpengfei.com/tags/autonomous-driving/" />
+  <meta property="og:title" content="Autonomous Driving | ZhangPengfei CV Site" />
+  <meta property="og:description" content="The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website." /><meta property="og:image" content="https://zhangpengfei.com/media/icon_hu7729264130191091259.png" />
+    <meta property="twitter:image" content="https://zhangpengfei.com/media/icon_hu7729264130191091259.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta property="og:updated_time" content="2024-07-01T00:00:00&#43;00:00" />
+    
+  
+
+  
+
+
+
+
+  <title>Autonomous Driving | ZhangPengfei CV Site</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/dist/lib/katex/katex.min.505d5f829022bb7b4f24dfee0aa1141cd7bba67afe411d1240335f820960b5c3.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr&#43;QR0SQDNfgglgtcM=" />
+  
+  
+  <script defer src="/dist/lib/katex/katex.min.dc84b296ec3e884de093158f760fd9d45b6c7abe58b5381557f4e138f46a58ae.js" integrity="sha256-3ISyluw&#43;iE3gkxWPdg/Z1Ftser5YtTgVV/ThOPRqWK4="></script>
+  
+  
+  
+  
+  <script defer src="/js/katex-renderer.6579ec9683211cfb952064aedf3a3baea5eeb17a061775b32b70917474637c80.js" integrity="sha256-ZXnsloMhHPuVIGSu3zo7rqXusXoGF3WzK3CRdHRjfIA="></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.e5fa931947cac2d947732ea37a770aae2b5bd4a50b6048060cd129b46159a06d.js"
+    integrity="sha256-5fqTGUfKwtlHcy6jencKritb1KULYEgGDNEptGFZoG0="
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+      
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+    
+  
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="ZhangPengfei CV Site">
+        Pengfei Zhang
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Home</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/experience"
+        >Experience</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/publication"
+        >Papers</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/project"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      
+
+<div class="max-w-prose mx-auto flex justify-center">
+  <article class="prose prose-slate lg:prose-xl dark:prose-invert">
+    <h1 class="lg:text-6xl">Autonomous Driving</h1>
+    
+  </article>
+</div>
+
+
+
+
+<div class="flex flex-col items-center">
+
+  <div class="container max-w-[65ch] mx-auto bg-white dark:bg-zinc-900 rounded-xl border-gray-100 dark:border-gray-700 border shadow-md overflow-hidden my-5">
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+<a href="/project/spatial_temporal_decider/"  class="mb-5">
+  <div class="md:flex">
+    <div class="md:flex-shrink-0 overflow-hidden">
+      
+        
+        
+      <img class="h-48 w-full object-cover md:w-48 hover:scale-125 transition duration-500 cursor-pointer object-cover" loading="lazy" src="/project/spatial_temporal_decider/featured_hu15757821593576194163.webp" height="655" width="655" alt="Spatial Temporal Decider">
+      
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">Spatial Temporal Decider</div>
+      <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
+        1 Background In traditional autonomous driving decision-making and planning frameworks, a lateral-longitudinal hierarchical architecture is often employed. However, since lateral and longitudinal decisions are made independently within this framework, their performance is often suboptimal in scenarios requiring close coordination between path and speed.</p>
+      <p class="mt-2 text-gray-500 dark:text-gray-400 text-sm">Jul 1, 2024</p>
+    </div>
+  </div>
+</a>
+
+  
+  
+
+
+
+
+
+
+
+
+<a href="/project/path_planner/"  class="mb-5">
+  <div class="md:flex">
+    <div class="md:flex-shrink-0 overflow-hidden">
+      
+        
+        
+      <img class="h-48 w-full object-cover md:w-48 hover:scale-125 transition duration-500 cursor-pointer object-cover" loading="lazy" src="/project/path_planner/featured_hu8072841869872132900.webp" height="655" width="655" alt="Cartesian Path Planner">
+      
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">Cartesian Path Planner</div>
+      <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
+        1 Background Traditional path planning methods based on the Frenet coordinate system have advantages such as simple problem formulation and fast solving speed. However, they also suffer from significant drawbacks, including a heavy reliance on the reference line, overly complex curvature constraints, difficulty in evaluating ride comfort, and highly inaccurate modeling of collision constraints.
+To address these issues, we propose a path planning approach in the Cartesian coordinate system. The Cartesian-based method offers advantages such as the ability to incorporate precise vehicle kinematic constraints, curvature constraints, and collision constraints, making it easier to ensure the feasibility and safety of the path. However, path planning in the Cartesian coordinate system also faces several challenges. For instance, kinematic constraints become nonlinear equality constraints, collision constraints shift from convex to non-convex, and the reference line cost transitions from a simple quadratic function to a complex nonlinear form. These characteristics result in the optimization problem having numerous local minima, increasing reliance on the initial solution and imposing higher demands on the convergence and solving speed of the optimization algorithm.
+2 Technical Details 2.1 Path Representation Common path representations in autonomous driving include Bézier curves, B-spline curves, spiral curves, and vehicle kinematic models. In our approach, we adopt the kinematic model, using $\dot\kappa$ as the control input and $X$, $Y$, $\theta$, and $\kappa$ as the system states. Compared to other methods, this path representation offers significant flexibility and allows for straightforward constraints on $\kappa$ and $\dot\kappa$. However, it has a notable drawback: ensuring path smoothness is challenging, as it is influenced by other cost functions and constraints.
+2.2 Collision Constraint Modeling This involves two aspects of selection: the representation of the ego vehicle and the representation of the environment. These two factors also influence each other.
+For the representation of the ego vehicle, it can be modeled as a convex polygon, typically a rectangle, or as a union of multiple enclosing circles. Generally, the convex polygon representation is more accurate than the enclosing circle method. However, calculating the distance between a convex polygon and obstacles is significantly more complex than calculating the distance between enclosing circles and obstacles.
+For the representation of the environment, there are three main approaches:
+Direct Representation: Obstacles are modeled as convex hulls, such as convex polygons, spheres, or ellipsoids. Drivable Corridor Representation: Drivable regions are represented as a union of convex sets, such as convex polygons or spheres. Distance Field Representation: A global distance function is constructed, where the input is a coordinate, and the output is the distance from this coordinate to the nearest obstacle. The typical representation is Euclidean Signed Distance Field (ESDF). Each of these methods has its advantages and disadvantages.
+The first approach requires few assumptions, preserving the original feasible space to the greatest extent. However, it involves complex distance calculations and is inefficient when there are many obstacles. The second approach confines the solution within a drivable space. Each segment of the solution corresponds to a convex constraint, greatly simplifying the constraint of the problem. However, constructing the convex corridor is time-consuming, often loses significant drivable space, and the allocation of appropriate convex constraints to each segment heavily impacts the final solution. The third approach is highly efficient, with the time complexity for distance and gradient calculations based on the distance field being O(1). However, building the distance field is time-consuming, and its resolution greatly affects the resulting path. Ultimately, we opted for the enclosing circle representation for the ego vehicle, sacrificing some accuracy to achieve lower computational complexity. For the environment representation, we experimented with both the drivable corridor and Euclidean distance field approaches and chose the Euclidean distance field method. This section provides a high-level overview of the technical choices. In practical implementation, regardless of the chosen representation method, numerous engineering techniques and algorithmic improvements are required to achieve an better result.
+2.3 Reference Line Cost Modeling Before introducing the specific modeling approach, it is essential to clarify the complexity of reference line costs. In the Frenet coordinate system, the reference line cost is a simple quadratic function:
+$$\min_L \frac{1}{2} w_l L^2$$
+However, in the Cartesian coordinate system, this cost function becomes much more complex. In fact, the reference line cost can be generalized to achieve the same optimization goals as in the Frenet system, which is essentially a cost designed for the $(S, L)$ variables. For instance, the reference line cost in the Cartesian system can be expressed as:
+$$\min_{X, Y} \frac{1}{2} w_l L(X, Y)^2$$
+where $L(X,Y)$ is a Frenet projection function of $X$ and $Y$.
+Generally, projecting Cartesian coordinates $(X, Y)$ into Frenet coordinates $(S, L)$ involves two main steps. The first step determines the corresponding $S$ by identifying the nearest point on the reference line to $(X, Y)$. The second step computes $L$ based on the normal vector of the reference line at $S$.
+For the first step, the common engineering approach is to traverse all points on the reference line to find the nearest one and use its $S$ coordinate as the projection result. For the second step, assume the reference line point at $S$ has coordinates $[X(S), Y(S)]$ and a normal vector $[N_X(S), N_Y(S)]$. Then, $L(X, Y)$ can be calculated as:
+$$L(X, Y) = \left[X - X(S), Y - Y(S)\right] \cdot \left[\begin{matrix}N_X(S)\\ N_Y(S)\end{matrix}\right]$$Based on the above, modeling the reference line cost, as well as other Frenet optimization objectives, primarily involves efficiently determining the $(S, L)$ values corresponding to $(X, Y)$ and quickly computing the gradients $\frac{dS}{dX}, \frac{dS}{dY}, \frac{dL}{dX}, \frac{dL}{dY}$.
+Two feasible methods address this objective:
+Fixed Nearest Point Approach:
+For each path point in the initial solution, search for the nearest point and fix its $S$ value for the subsequent optimization process. The advantage of this approach is that $\frac{dS}{dX} = 0$ and $\frac{dS}{dY} = 0$, simplifying the reference line cost. However, the drawback is that when there is a significant difference between the initial solution and the optimal solution, the initially assigned $S$ value may deviate greatly from the accurate $S$, leading to a final solution that does not align with the intended cost design.
+Precomputed SLMap Approach:
+Before optimization, precompute an SLMap, a function that maps $(X, Y)$ inputs to $(S, L)$ outputs. The advantage of this method is that it avoids any prior assumptions and allows for very fast queries. However, constructing this map is time-intensive. Additionally, for the reference line cost specifically, it is sufficient to compute the projection relationship between $L$ and $(X, Y)$. This can be replaced by using a Euclidean distance field constructed based on the reference line.
+2.4 Optimization Algorithm Path optimization in the Cartesian coordinate system can be formulated as a special type of constrained optimization problem, characterized primarily by chained equality constraints. Depending on the path representation, these constraints manifest as different kinematic or curve continuity constraints. In essence, this is treated as an optimal control problem.
+There are two main approaches to solving optimal control problems: collocation methods and shooting methods.
+Collocation Method:
+Collocation methods optimize both state variables and control variables simultaneously, treating kinematic constraints as general equality constraints. This approach is similar to how general constrained optimization problems are handled. Collocation methods are more numerically stable, less sensitive to the initial solution, and more easily to converge. However, they may not strictly satisfy kinematic constraints, involve more optimization variables, and have higher computational complexity.
+Shooting Method:
+Shooting methods optimize only the control variables, while the state variables are propagated through the kinematic constraints. This ensures that kinematic constraints are strictly satisfied. Compared to collocation methods, shooting methods involve fewer optimization variables but are more sensitive to the initial solution and are prone to divergence.
+The Iterative Linear Quadratic Regulator (ILQR) algorithm is a classic example of a shooting method and is one of the most widely used optimization algorithms in the autonomous driving. Its advantages include the ability to strictly satisfy kinematic constraints and the use of dynamic programming to decompose a large-scale optimization problem into many smaller problems, thereby reducing complexity. However, its drawbacks include susceptibility to divergence, poor stability, and a lack of mechanisms to handle constraints other than kinematic ones.
+The ILQR algorithm was likely first popularized at Waymo, leading many domestic companies to adopt it. However, it might not be the most suitable optimization algorithm in all scenarios. In practical engineering implementations, applying the ILQR algorithm effectively often requires additional mechanisms for constraint handling (e.g., penalty functions or augmented Lagrangian methods), multiple shooting techniques, and trust region methods.
+3 Engineering Techniques 3.1 Problem Modeling Selection of Enclosing Circle Position, Number, and Radius:
+The position, radius, and number of enclosing circles need to balance accuracy and efficiency. For path planning, the enclosing circles should not cover the entire vehicle body, but rather the entire path. From this perspective, we can reduce both the radius and the number of enclosing circles.
+Polyline Boundary Smoothing Method:
+For path planning, assuming that left and right boundaries are given and both are represented by piecewise polylines, with the ego vehicle’s shape represented by enclosing circles, there is a need to frequently check if a circle intersects a polyline segment, or the distance between the circle and the polyline. This can be computationally expensive. One alternative approach is to assume a circle rolls from the start point of the polyline to the endpoint. The trajectory traced by the circle’s center will form a new boundary. Subsequently, we only need to ensure that the center of the ego vehicle’s enclosing circle remains inside this new boundary.
+Convex Corridor Construction Method:
+Constructing a convex corridor in path planning needs to be efficient while avoiding the loss of feasible space. For autonomous driving, the reference line can serve as a heuristic, where points are taken along the reference line at intervals and used as seeds to build the convex space.
+Allocation and Switching of Convex Space Constraints:
+It is possible that the convex space constraint for a given path point may differ between consecutive iterations. How can we switch constraints without affecting the convergence? The answer is that constraint switching should only occur from a larger violation of the constraint to a smaller one. For example, when switching convex space constraints, we need to evaluate the distance from the path point to the convex hull and only allow switching from a larger distance to a smaller one, but not the reverse.
+ESDF Smoothing Method:
+In path planning, if the ESDF is used to evaluate the distance to obstacles, and the ego vehicle’s shape is represented by enclosing circles, we observe that directly constructing the ESDF from the actual obstacle boundaries leads to many local minima. This issue can be alleviated by first expanding the obstacles according to the radius of the ego vehicle’s enclosing circle and then constructing the ESDF.
+Frenet Distance Field Construction and Update Method:
+Before constructing the Frenet distance field, simplify the reference line by reducing the original reference line to a piecewise polyline within a given error range. Then, calculate the distance field based on this polyline. The distance field is stored in blocks and is progressively updated as the vehicle moves forward.
+3.2 Optimization Solving Penalty Function Selection:
+Exponential and log-based obstacle functions grow too quickly and can cause divergence during the iteration process. A polynomial-based obstacle function is a better choice, provided it is twice differentiable near zero.
+Selection of Penalty Coefficients in Penalty Functions:
+The penalty coefficient should not be set too large at the outset. It is better to gradually increase the penalty, which helps to avoid local minima when the initial solution quality is poor.
+Trust Region Mechanism:
+ILQR is a shooting-based algorithm, where small changes in control inputs can lead to large trajectory deviations due to the cumulative effects of the kinematic model. This can lead to instability in the iteration process or cause iterations to stagnate (because the step size must be very small). Therefore, it is necessary to constrain the range of control input changes. This can be done by adding regularization terms to the cost function or by directly enforcing constraints.</p>
+      <p class="mt-2 text-gray-500 dark:text-gray-400 text-sm">Jul 1, 2023</p>
+    </div>
+  </div>
+</a>
+
+  
+
+  </div>
+
+
+  
+
+
+</div>
+
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2024 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

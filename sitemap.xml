@@ -10,8 +10,36 @@
     <lastmod>2024-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>https://zhangpengfei.com/tags/autonomous-driving/</loc>
+    <lastmod>2024-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/project/spatial_temporal_decider/</loc>
+    <lastmod>2024-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/</loc>
+    <lastmod>2024-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://zhangpengfei.com/project/</loc>
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication_types/article-journal/</loc>
+    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/tro2023/</loc>
+    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication_types/</loc>
+    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/</loc>
+    <lastmod>2023-12-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://zhangpengfei.com/post/get-started/</loc>
@@ -34,31 +62,7 @@
     <lastmod>2023-10-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/tags/</loc>
-    <lastmod>2023-10-27T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://zhangpengfei.com/tags/hugo/</loc>
-    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://zhangpengfei.com/project/pandas/</loc>
-    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://zhangpengfei.com/project/pytorch/</loc>
-    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://zhangpengfei.com/project/scikit/</loc>
-    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://zhangpengfei.com/tags/second-brain/</loc>
-    <lastmod>2023-10-26T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://zhangpengfei.com/tags/wowchemy/</loc>
     <lastmod>2023-10-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -67,6 +71,10 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://zhangpengfei.com/post/data-visualization/</loc>
+    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/hugo/</loc>
     <lastmod>2023-10-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -82,44 +90,152 @@
     <lastmod>2023-10-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication/preprint/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/project/path_planner/</loc>
+    <lastmod>2023-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication_types/article/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/tags/autonomous-control/</loc>
+    <lastmod>2023-03-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/tags/large-language-models/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/publication/dynamic-attach/</loc>
+    <lastmod>2023-03-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication_types/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/tags/bioinspired-adhesion/</loc>
+    <lastmod>2023-03-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/tags/robotic-fish/</loc>
+    <lastmod>2023-03-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication/journal-article/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/tags/underwater-visual-localization/</loc>
+    <lastmod>2023-03-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication_types/article-journal/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/publication/tie2023/</loc>
+    <lastmod>2023-01-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/tags/source-themes/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/publication/tie2022panjie/</loc>
+    <lastmod>2022-12-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://zhangpengfei.com/publication/conference-paper/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <loc>https://zhangpengfei.com/post/email/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/project/robotic_remora/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/robotic/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/tie2022/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/tmech2022/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/ral2022/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/depth-control/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/static-attach/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/pose-control/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/remora/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/tmech2021/</loc>
+    <lastmod>2021-10-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/fbus-ekf/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://zhangpengfei.com/publication_types/paper-conference/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/refraction-correction/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/stereo-visual-inertial-localization/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/underwater-localization/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/bionic-robotic-fish/</loc>
+    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/nonlinear-model-predictive-control/</loc>
+    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/nonlinear-controller/</loc>
+    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/position-control/</loc>
+    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/underactuated-dynamics/</loc>
+    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/project/attitude_stability/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/neural-network-feedforward-control/</loc>
+    <lastmod>2020-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/reaction-wheel/</loc>
+    <lastmod>2020-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/reaction-wheel/</loc>
+    <lastmod>2020-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/roll-stability/</loc>
+    <lastmod>2020-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/tags/sliding-mode-control/</loc>
+    <lastmod>2020-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/smc2020/</loc>
+    <lastmod>2020-01-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://zhangpengfei.com/publication/gimbal/</loc>
+    <lastmod>2019-09-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

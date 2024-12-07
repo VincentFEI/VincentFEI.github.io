@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Autonomous Driving | ZhangPengfei CV Site</title>
+    <link>https://zhangpengfei.com/tags/autonomous-driving/</link>
+      <atom:link href="https://zhangpengfei.com/tags/autonomous-driving/index.xml" rel="self" type="application/rss+xml" />
+    <description>Autonomous Driving</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://zhangpengfei.com/media/icon_hu7729264130191091259.png</url>
+      <title>Autonomous Driving</title>
+      <link>https://zhangpengfei.com/tags/autonomous-driving/</link>
+    </image>
+    
+    <item>
+      <title>Spatial Temporal Decider</title>
+      <link>https://zhangpengfei.com/project/spatial_temporal_decider/</link>
+      <pubDate>Mon, 01 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://zhangpengfei.com/project/spatial_temporal_decider/</guid>
+      <description>&lt;h2 id=&#34;1-background&#34;&gt;1 Background&lt;/h2&gt;
+&lt;p&gt;In traditional autonomous driving decision-making and planning frameworks, a lateral-longitudinal hierarchical architecture is often employed. However, since lateral and longitudinal decisions are made independently within this framework, their performance is often suboptimal in scenarios requiring close coordination between path and speed.&lt;/p&gt;
+&lt;p&gt;For example, when the ego vehicle is traveling at high speed and a social vehicle merges into its cruising lane ahead, merely responding with braking may exceed the vehicle&amp;rsquo;s deceleration limits. In such cases, close coordination between path and speed is essential. The vehicle must execute a lateral maneuver to evade into an adjacent lane while simultaneously braking longitudinally to mitigate risk.&lt;/p&gt;
+&lt;p&gt;Such scenarios are common in driving environments. Therefore, to enhance the coordination between lateral and longitudinal motions, it is necessary to design a joint decision-making strategy for critical obstacles on top of the lateral-longitudinal hierarchical framework.&lt;/p&gt;
+&lt;p&gt;During my tenure in Baidu, I designed two lateral-longitudinal decision-making modules, which are descirbed as follows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Behavior Planner for Lane-Change Scenarios&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In our decision-making framework, the lane-change process is divided into two states: normal lane-changing and risk avoidance. Normal lane-changing refers to situations where the ego vehicle merges into the target lane between two vehicles without interaction risks with the following vehicle or other traffic participants. Risk avoidance, on the other hand, occurs when interaction risks arise during the merging process, such as aggressive behavior from the following vehicle, vehicles entering from side roads, or pedestrians crossing. In such cases, the ego vehicle enters a special risk avoidance state and switches back to normal lane-changing once the interaction risk disappears. The primary purpose of the behavior planner is to decide the optimal behavior for the ego vehicle during the risk avoidance state. It determines whether the vehicle should return to its original lane, drive along lane lines, or proceed with the merge. This modules aims to optimize passenger comfort while ensuring safety.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Spatial-Temporal Nudge Decider&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In path planning, a core challenge is determining whether dynamic obstacles require a lateral response, as well as the extent and position of such a response. Properly lateral decision to dynamic obstacles can minimize unnecessary harsh braking and erratic path oscillations, thereby enhancing the safety of the ego vehicle. The primary objective of the spatial-temporal nudge decider is to calculate a reasonable heuristic speed profile. Based on this profile, it determines the interaction timing with dynamic obstacles and the bypass position for executing the lateral maneuver.&lt;/p&gt;
+&lt;h2 id=&#34;2-technical-details&#34;&gt;2 Technical Details&lt;/h2&gt;
+&lt;h3 id=&#34;21-sampling-or-search&#34;&gt;2.1 Sampling or Search&lt;/h3&gt;
+&lt;p&gt;The core objective of lateral-longitudinal joint decision-making is to determine a safe and reasonable 3D coarse trajectory for the ego vehicle. The joint decision-making task can be regarded as a multivariable, non-convex, non-smooth optimization problem. Solving this type of problem is highly challenging. Despite the heuristic optimization algorithms, such as SVGD, the more commonly used techniques are sampling and search.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sampling-Based Approach&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The basic framework using sampling-based method involves generating a series of 3D trajectories for the ego vehicle. Each sampled trajectory is evaluated, and the best one is selected. During the evaluation, it is also necessary to sample the motion of obstacles based on the ego vehicle’s trajectory to make more accurate assessments of the trajectory’s quality.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Search-Based Approach&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The basic framework using search-based method involves defining the state space, action space, and cost function, then using a search algorithm to find the optimal action sequence. Generally, actions can be divided into micro-actions and macro-actions: Micro-actions correspond to low-level control quantity (e.g., steering angle, acceleration) and are well-suited for graph-search algorithms like A*. Macro-actions correspond to higher-level behaviors (e.g., acceleration, deceleration, lane change, gentle braking, nudging) and are better suited for tree-search algorithms like MCTS.
+To evaluate interactions with obstacles, obstacle states and actions can also be included in the state and action spaces. However, this significantly increases the problem’s complexity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Comparison of Methods&lt;/strong&gt;
+The sampling-based method offers the advantages of lower computational complexity and flexible cost function design. However, its main drawback is insufficient sampling coverage, which may result in missing feasible trajectories. Conversely, the search-based method has the advantage of exhaustive exploration of the solution space, theoretically enabling the identification of an optimal solution. However, its disadvantages include high computational complexity and less flexible cost function design.&lt;/p&gt;
+&lt;p&gt;Relatively speaking, we believe the limitations of the sampling method in terms of coverage are easier to address. Joint decision-making does not require a globally optimal 3D trajectory; it only needs a set of diverse trajectories representing different motion modalities, from which a relatively optimal trajectory can be selected. The effective cost function design can mitigate the impact of sampling incompleteness. For example, instead of using exact collision detection that leads to non-continuous property, metrics such as relative distance can be used to create continuous cost functions.&lt;/p&gt;
+&lt;h3 id=&#34;22-cost-evaluation&#34;&gt;2.2 Cost Evaluation&lt;/h3&gt;
+&lt;p&gt;Cost evaluation is to answer one key question: How to select the best trajectory? Clearly, this is a fundamental challenge that no approach can avoid. This question can be addressed from two perspectives: 1. What costs should be considered? 2. How should these trajectory be compared according to these costs?&lt;/p&gt;
+&lt;p&gt;For the first question, my answer is that at least five categories should be included: safety, comfort, efficiency, interaction, and human-likeness. The specific design of cost functions is not detailed here, as it often depends on the scenarios.&lt;/p&gt;
+&lt;p&gt;The second question is more interseting. The simplest and most direct method is to combine all costs into a weighted sum and select the trajectory with the lowest total cost. This is the most common approach in many papers. However, this method can be disastrous in engineering. The problems with weighted combinations of costs include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lack of priority representation: It fails to reflect the relative importance of different cost categories.&lt;/li&gt;
+&lt;li&gt;Incomparable costs: Different cost categories are inherently non-comparable, such as the collision and efficiency.&lt;/li&gt;
+&lt;li&gt;Severe coupling: Adjusting cost weights affects a wide and uncontrollable range of outcomes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;RuleBook-Based Cost Evaluation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Our solution is adopting the RuleBook-based cost evaluation framework. A Rule refers to a cost function that takes a trajectory as input and outputs a cost value. A RuleBook is a collection of cost functions and their priority relationships. Let&amp;rsquo;s consider an example as illustrated below. Suppose we have three rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule $\alpha$: corresponding to collision cost.&lt;/li&gt;
+&lt;li&gt;Rule $\beta$: corresponding to harsh braking cost.&lt;/li&gt;
+&lt;li&gt;Rule $\gamma$: corresponding to stagnation cost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As shown in the below figure, the RuleBook defines their priority relationships. For instance, if Rule $\alpha$ has the highest priority, trajectories are first sorted by their collision cost. If three trajectories $x$, $y$, and $z$ are evaluated, we can get $x &lt; y$ and $x &lt; z$ based on Rule $\alpha$.However, the $y$ and $z$ cannot be distinguished based on Rules $\beta$ and $\gamma$, since these two rules do not have a priority relationship. To further compare the remain trajectories, the RuleBook can be adjusted in following ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set a priority relationship: Assign Rule  $\beta$ a lower priority than Rule $\gamma$, resulting in $z &lt; y$.&lt;/li&gt;
+&lt;li&gt;Combine rules: Create a new rule $\delta$ by weighting Rules $\beta$ and $\gamma$, such that if  $\delta(z)&lt;\delta(y)$, then $z &lt; y$.&lt;/li&gt;
+&lt;li&gt;Introduce a new trajectory or rule: If a fourth trajectory $w$ exists, and $\beta(z)=\beta(w),~\gamma(z)=\gamma(w)$, adding a low priority rule $\delta$ can distinguish between $z$ and $w$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the RuleBook-based cost evaluation framework, the priority of rules is explicitly defined. Adjustments to the RuleBook, such as adding new priorities, merging old rules, or introducing new rules, can clearly define the relative order of all trajectories. Additionally, an important advantages for this framework is adjusting lower-priority rules do not affect the relative order determined by higher-priority rules. This ensures that the scope of impact during algorithm iteration is well-controlled, making the system robust and adaptable.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Example of a RuleBook&#34; srcset=&#34;
+               /project/spatial_temporal_decider/rulebook_hu10158784672624911263.webp 400w,
+               /project/spatial_temporal_decider/rulebook_hu16855238804849058884.webp 760w,
+               /project/spatial_temporal_decider/rulebook_hu3357020951016851953.webp 1200w&#34;
+               src=&#34;https://zhangpengfei.com/project/spatial_temporal_decider/rulebook_hu10158784672624911263.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;272&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;23-uncertainty-in-obstacle-motion&#34;&gt;2.3 Uncertainty in Obstacle Motion&lt;/h3&gt;
+&lt;p&gt;Handling uncertainty in obstacle motion is one of the most challenging issues in autonomous driving decision-making systems. This uncertainty has two key dimensions: intent uncertainty and trajectory uncertainty. For example, consider a scenario shown in cover figure, where the ego vehicle is driving straight, and a vehicle emerges from a side road ahead. The intent of this vehicle is unclear, it may either cut in immediately or wait for the ego vehicle to pass. For an autonomous driving system, assuming the vehicle will cut in may result in harsh braking, while assuming it will yield may lead to a collision risk. Driving like a human, such as slowing down to observe the other vehicle’s intent before making the next decision, is a key algorithmic challenge. Even when the intent of the obstacle is clear, its future trajectory remains uncertain. The cut-in angle and timing of that vehicle cannot be precisely predicted. Therefore, ensuring safety under trajectory uncertainty is another critical consideration for decision-making algorithms. Based on our understanding of existing methods, we believe contingency planning is well-suited for addressing intent uncertainty, while risk metrics from stochastic programming can be effective in handling trajectory uncertainty.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Contingency Planning for Intent Uncertainty&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The core idea of contingency planning is to construct a trajectory tree that considers multiple obstacle intents simultaneously, as illustrated in cover figure. Each branch of the tree corresponds to a specific intent of the obstacle. This method evaluates the overall cost of the trajectory tree by combining the probability distribution of obstacle intents with the cost of each branch. Under the contingency planning framework, the ego vehicle responds to all possible obstacle intents. For intents with lower probabilities, the vehicle’s response is minimal, while for intents with higher probabilities, the response is stronger. This means that temporary uncertainty in obstacle intent is acceptable. As time progresses and the probability distribution of obstacle intents converges to the true intent, the ego vehicle’s behavior will become reasonable.&lt;/p&gt;
+&lt;p&gt;It is worth noting that partially observable Markov decision processes (POMDP) also offer a problem formulation for addressing intent uncertainty. POMDP can explicitly define actions that gather information and reduce uncertainty. Thus, the ego vehicle has the capability to adopt a defensive driving maneuver to address uncertain driving scenarios.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Risk Metrics in Stochastic Programming for Trajectory Uncertainty&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The core idea of using risk metrics to address trajectory uncertainty is to evaluate collision costs from a probabilistic perspective. Traditional methods compute collision costs by performing exact collision detection between the ego vehicle&amp;rsquo;s trajectory and the predicted obstacle trajectory. However, such detection are highly sensitive to changes in predicted trajectories, resulting in abrupt cost jumps. When trajectory uncertainty is significant, the exact collision detection becomes meaningless.&lt;/p&gt;
+&lt;p&gt;Introducing Value at Risk (VaR) or Conditional Value at Risk (CVaR) can address this issue. By incorporating these metric as objective functions or constraints, collision risks can be controlled at a given confidence level.&lt;/p&gt;
+&lt;p&gt;For instance, let $x$ represent the ego vehicle’s trajectory, $\xi$ represent the obstacle trajectory (a random variable), and $G(x, \xi)$ represent the overlap area between the two trajectories (also a random variable). The metric $\text{VaR}_{1-\alpha}[G(x, \xi)]$ is defined as a value $t$ such that the probability of $G(x, \xi) &gt; t$ is $\alpha$, and the probability of $G(x,\xi) &lt; t$ is $1-\alpha$.&lt;/p&gt;
+&lt;p&gt;Based on this definition, a smaller $\text{VaR}_{1-\alpha}[G(x, \xi)]$ at a fixed confidence level $\alpha$ indicates a higher probability of smaller overlap areas between the trajectories, implying greater safetyEmploying VaR as a collision cost provides a probabilistic guarantee of safety.&lt;/p&gt;
+&lt;p&gt;Of course, calculating VaR is complex and requires specialized design for practical applications. Nonetheless, these risk metrics allow decision-making algorithms to manage trajectory uncertainty effectively and robustly.&lt;/p&gt;
+&lt;!-- ## 3 Result
+
+The behavior planner for lane-change scenarios and the spatiotemporal nudge decider have been extensively integrated into our decision module, significantly enhancing driving rationality and comfort. --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cartesian Path Planner</title>
+      <link>https://zhangpengfei.com/project/path_planner/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://zhangpengfei.com/project/path_planner/</guid>
+      <description>&lt;h3 id=&#34;1-background&#34;&gt;1 Background&lt;/h3&gt;
+&lt;p&gt;Traditional path planning methods based on the Frenet coordinate system have advantages such as simple problem formulation and fast solving speed. However, they also suffer from significant drawbacks, including a heavy reliance on the reference line, overly complex curvature constraints, difficulty in evaluating ride comfort, and highly inaccurate modeling of collision constraints.&lt;/p&gt;
+&lt;p&gt;To address these issues, we propose a path planning approach in the Cartesian coordinate system. The Cartesian-based method offers advantages such as the ability to incorporate precise vehicle kinematic constraints, curvature constraints, and collision constraints, making it easier to ensure the feasibility and safety of the path. However, path planning in the Cartesian coordinate system also faces several challenges. For instance, kinematic constraints become nonlinear equality constraints, collision constraints shift from convex to non-convex, and the reference line cost transitions from a simple quadratic function to a complex nonlinear form. These characteristics result in the optimization problem having numerous local minima, increasing reliance on the initial solution and imposing higher demands on the convergence and solving speed of the optimization algorithm.&lt;/p&gt;
+&lt;h3 id=&#34;2-technical-details&#34;&gt;2 Technical Details&lt;/h3&gt;
+&lt;h4 id=&#34;21-path-representation&#34;&gt;2.1 Path Representation&lt;/h4&gt;
+&lt;p&gt;Common path representations in autonomous driving include Bézier curves, B-spline curves, spiral curves, and vehicle kinematic models. In our approach, we adopt the kinematic model, using $\dot\kappa$ as the control input and $X$, $Y$, $\theta$, and $\kappa$ as the system states. Compared to other methods, this path representation offers significant flexibility and allows for straightforward constraints on $\kappa$ and $\dot\kappa$. However, it has a notable drawback: ensuring path smoothness is challenging, as it is influenced by other cost functions and constraints.&lt;/p&gt;
+&lt;h4 id=&#34;22-collision-constraint-modeling&#34;&gt;2.2 Collision Constraint Modeling&lt;/h4&gt;
+&lt;p&gt;This involves two aspects of selection: the representation of the ego vehicle and the representation of the environment. These two factors also influence each other.&lt;/p&gt;
+&lt;p&gt;For the representation of the ego vehicle, it can be modeled as a convex polygon, typically a rectangle, or as a union of multiple enclosing circles. Generally, the convex polygon representation is more accurate than the enclosing circle method. However, calculating the distance between a convex polygon and obstacles is significantly more complex than calculating the distance between enclosing circles and obstacles.&lt;/p&gt;
+&lt;p&gt;For the representation of the environment, there are three main approaches:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Direct Representation&lt;/strong&gt;: Obstacles are modeled as convex hulls, such as convex polygons, spheres, or ellipsoids.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Drivable Corridor Representation&lt;/strong&gt;: Drivable regions are represented as a union of convex sets, such as convex polygons or spheres.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Distance Field Representation&lt;/strong&gt;: A global distance function is constructed, where the input is a coordinate, and the output is the distance from this coordinate to the nearest obstacle. The typical representation is Euclidean Signed Distance Field (ESDF).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each of these methods has its advantages and disadvantages.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The first approach requires few assumptions, preserving the original feasible space to the greatest extent. However, it involves complex distance calculations and is inefficient when there are many obstacles.&lt;/li&gt;
+&lt;li&gt;The second approach confines the solution within a drivable space. Each segment of the solution corresponds to a convex constraint, greatly simplifying the constraint of the problem. However, constructing the convex corridor is time-consuming, often loses significant drivable space, and the allocation of appropriate convex constraints to each segment heavily impacts the final solution.&lt;/li&gt;
+&lt;li&gt;The third approach is highly efficient, with the time complexity for distance and gradient calculations based on the distance field being O(1). However, building the distance field is time-consuming, and its resolution greatly affects the resulting path.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ultimately, we opted for the enclosing circle representation for the ego vehicle, sacrificing some accuracy to achieve lower computational complexity. For the environment representation, we experimented with both the drivable corridor and Euclidean distance field approaches and chose the Euclidean distance field method. This section provides a high-level overview of the technical choices. In practical implementation, regardless of the chosen representation method, numerous engineering techniques and algorithmic improvements are required to achieve an better result.&lt;/p&gt;
+&lt;h4 id=&#34;23-reference-line-cost-modeling&#34;&gt;2.3 Reference Line Cost Modeling&lt;/h4&gt;
+&lt;p&gt;Before introducing the specific modeling approach, it is essential to clarify the complexity of reference line costs. In the Frenet coordinate system, the reference line cost is a simple quadratic function:&lt;br&gt;
+&lt;/p&gt;
+$$
+\min_L \frac{1}{2} w_l L^2
+$$&lt;p&gt;&lt;br&gt;
+However, in the Cartesian coordinate system, this cost function becomes much more complex. In fact, the reference line cost can be generalized to achieve the same optimization goals as in the Frenet system, which is essentially a cost designed for the $(S, L)$ variables. For instance, the reference line cost in the Cartesian system can be expressed as:&lt;br&gt;
+&lt;/p&gt;
+$$
+\min_{X, Y} \frac{1}{2} w_l L(X, Y)^2
+$$&lt;p&gt;&lt;br&gt;
+where $L(X,Y)$ is a Frenet projection function of $X$ and $Y$.&lt;/p&gt;
+&lt;p&gt;Generally, projecting Cartesian coordinates $(X, Y)$ into Frenet coordinates $(S, L)$ involves two main steps. The first step determines the corresponding $S$ by identifying the nearest point on the reference line to $(X, Y)$. The second step computes $L$ based on the normal vector of the reference line at $S$.&lt;/p&gt;
+&lt;p&gt;For the first step, the common engineering approach is to traverse all points on the reference line to find the nearest one and use its $S$ coordinate as the projection result. For the second step, assume the reference line point at $S$ has coordinates $[X(S), Y(S)]$ and a normal vector $[N_X(S), N_Y(S)]$. Then, $L(X, Y)$ can be calculated as:&lt;br&gt;
+&lt;/p&gt;
+$$
+L(X, Y) = \left[X - X(S), Y - Y(S)\right] \cdot 
+\left[\begin{matrix}N_X(S)\\ N_Y(S)\end{matrix}\right]
+$$&lt;p&gt;Based on the above, modeling the reference line cost, as well as other Frenet optimization objectives, primarily involves efficiently determining the $(S, L)$ values corresponding to $(X, Y)$ and quickly computing the gradients $\frac{dS}{dX}, \frac{dS}{dY}, \frac{dL}{dX}, \frac{dL}{dY}$.&lt;/p&gt;
+&lt;p&gt;Two feasible methods address this objective:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fixed Nearest Point Approach:&lt;/strong&gt;&lt;br&gt;
+For each path point in the initial solution, search for the nearest point and fix its $S$ value for the subsequent optimization process. The advantage of this approach is that $\frac{dS}{dX} = 0$ and $\frac{dS}{dY} = 0$, simplifying the reference line cost. However, the drawback is that when there is a significant difference between the initial solution and the optimal solution, the initially assigned $S$ value may deviate greatly from the accurate $S$, leading to a final solution that does not align with the intended cost design.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Precomputed SLMap Approach:&lt;/strong&gt;&lt;br&gt;
+Before optimization, precompute an SLMap, a function that maps $(X, Y)$ inputs to $(S, L)$ outputs. The advantage of this method is that it avoids any prior assumptions and allows for very fast queries. However, constructing this map is time-intensive. Additionally, for the reference line cost specifically, it is sufficient to compute the projection relationship between $L$ and $(X, Y)$. This can be replaced by using a Euclidean distance field constructed based on the reference line.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;24-optimization-algorithm&#34;&gt;2.4 Optimization Algorithm&lt;/h4&gt;
+&lt;p&gt;Path optimization in the Cartesian coordinate system can be formulated as a special type of constrained optimization problem, characterized primarily by chained equality constraints. Depending on the path representation, these constraints manifest as different kinematic or curve continuity constraints. In essence, this is treated as an optimal control problem.&lt;/p&gt;
+&lt;p&gt;There are two main approaches to solving optimal control problems: collocation methods and shooting methods.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Collocation Method&lt;/strong&gt;:&lt;br&gt;
+Collocation methods optimize both state variables and control variables simultaneously, treating kinematic constraints as general equality constraints. This approach is similar to how general constrained optimization problems are handled. Collocation methods are more numerically stable, less sensitive to the initial solution, and more easily to converge. However, they may not strictly satisfy kinematic constraints, involve more optimization variables, and have higher computational complexity.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Shooting Method&lt;/strong&gt;:&lt;br&gt;
+Shooting methods optimize only the control variables, while the state variables are propagated through the kinematic constraints. This ensures that kinematic constraints are strictly satisfied. Compared to collocation methods, shooting methods involve fewer optimization variables but are more sensitive to the initial solution and are prone to divergence.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Iterative Linear Quadratic Regulator (ILQR) algorithm is a classic example of a shooting method and is one of the most widely used optimization algorithms in the autonomous driving. Its advantages include the ability to strictly satisfy kinematic constraints and the use of dynamic programming to decompose a large-scale optimization problem into many smaller problems, thereby reducing complexity. However, its drawbacks include susceptibility to divergence, poor stability, and a lack of mechanisms to handle constraints other than kinematic ones.&lt;/p&gt;
+&lt;p&gt;The ILQR algorithm was likely first popularized at Waymo, leading many domestic companies to adopt it. However, it might not be the most suitable optimization algorithm in all scenarios. In practical engineering implementations, applying the ILQR algorithm effectively often requires additional mechanisms for constraint handling (e.g., penalty functions or augmented Lagrangian methods), multiple shooting techniques, and trust region methods.&lt;/p&gt;
+&lt;h3 id=&#34;3-engineering-techniques&#34;&gt;3 Engineering Techniques&lt;/h3&gt;
+&lt;h4 id=&#34;31-problem-modeling&#34;&gt;3.1 Problem Modeling&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Selection of Enclosing Circle Position, Number, and Radius:&lt;/strong&gt;&lt;br&gt;
+The position, radius, and number of enclosing circles need to balance accuracy and efficiency. For path planning, the enclosing circles should not cover the entire vehicle body, but rather the entire path. From this perspective, we can reduce both the radius and the number of enclosing circles.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Polyline Boundary Smoothing Method:&lt;/strong&gt;&lt;br&gt;
+For path planning, assuming that left and right boundaries are given and both are represented by piecewise polylines, with the ego vehicle&amp;rsquo;s shape represented by enclosing circles, there is a need to frequently check if a circle intersects a polyline segment, or the distance between the circle and the polyline. This can be computationally expensive. One alternative approach is to assume a circle rolls from the start point of the polyline to the endpoint. The trajectory traced by the circle’s center will form a new boundary. Subsequently, we only need to ensure that the center of the ego vehicle&amp;rsquo;s enclosing circle remains inside this new boundary.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Convex Corridor Construction Method:&lt;/strong&gt;&lt;br&gt;
+Constructing a convex corridor in path planning needs to be efficient while avoiding the loss of feasible space. For autonomous driving, the reference line can serve as a heuristic, where points are taken along the reference line at intervals and used as seeds to build the convex space.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Allocation and Switching of Convex Space Constraints:&lt;/strong&gt;&lt;br&gt;
+It is possible that the convex space constraint for a given path point may differ between consecutive iterations. How can we switch constraints without affecting the convergence? The answer is that constraint switching should only occur from a larger violation of the constraint to a smaller one. For example, when switching convex space constraints, we need to evaluate the distance from the path point to the convex hull and only allow switching from a larger distance to a smaller one, but not the reverse.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ESDF Smoothing Method:&lt;/strong&gt;&lt;br&gt;
+In path planning, if the ESDF is used to evaluate the distance to obstacles, and the ego vehicle’s shape is represented by enclosing circles, we observe that directly constructing the ESDF from the actual obstacle boundaries leads to many local minima. This issue can be alleviated by first expanding the obstacles according to the radius of the ego vehicle&amp;rsquo;s enclosing circle and then constructing the ESDF.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Frenet Distance Field Construction and Update Method:&lt;/strong&gt;&lt;br&gt;
+Before constructing the Frenet distance field, simplify the reference line by reducing the original reference line to a piecewise polyline within a given error range. Then, calculate the distance field based on this polyline. The distance field is stored in blocks and is progressively updated as the vehicle moves forward.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;32-optimization-solving&#34;&gt;3.2 Optimization Solving&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Penalty Function Selection:&lt;/strong&gt;&lt;br&gt;
+Exponential and log-based obstacle functions grow too quickly and can cause divergence during the iteration process. A polynomial-based obstacle function is a better choice, provided it is twice differentiable near zero.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Selection of Penalty Coefficients in Penalty Functions:&lt;/strong&gt;&lt;br&gt;
+The penalty coefficient should not be set too large at the outset. It is better to gradually increase the penalty, which helps to avoid local minima when the initial solution quality is poor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Trust Region Mechanism:&lt;/strong&gt;&lt;br&gt;
+ILQR is a shooting-based algorithm, where small changes in control inputs can lead to large trajectory deviations due to the cumulative effects of the kinematic model. This can lead to instability in the iteration process or cause iterations to stagnate (because the step size must be very small). Therefore, it is necessary to constrain the range of control input changes. This can be done by adding regularization terms to the cost function or by directly enforcing constraints.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- ### 4 Results
+The developed path planner completely replaces the Frenet-based path planner and has been fully implemented on the RoboTaxi of our company. --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
